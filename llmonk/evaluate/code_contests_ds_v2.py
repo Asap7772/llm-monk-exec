@@ -2,17 +2,19 @@ from absl import app, flags
 import datasets
 import pandas as pd
 from llmonk.evaluate.grade_problems_nodocker import grade_problems
+import os
+os.environ['HF_TOKEN'] = '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'
 
 FLAGS = flags.FLAGS
 # flags.DEFINE_string("dataset", "Asap7772/code_contests", "Directory to load data from")
-flags.DEFINE_string("dataset", "Asap7772/code_contests_llamabase_passk-part1-of-1", "Directory to load data from")
+flags.DEFINE_string("dataset", "Asap7772/code_contests_llamabase_passk_test", "Directory to load data from")
 flags.DEFINE_integer("num_workers", 512, "Number of workers to use for grading")
 flags.DEFINE_string("save_dir", "results", "Directory to save results in")
 # flags.DEFINE_string("split", "valid", "Split to evaluate on")
 flags.DEFINE_string("split", "train", "Split to evaluate on")
 # flags.DEFINE_string('solution_col', 'solutions', 'Column name for solutions')
 flags.DEFINE_string('solution_col', 'responses', 'Column name for solutions')
-flags.DEFINE_integer('max_solutions', 256, 'Maximum number of solutions to evaluate')
+flags.DEFINE_integer('max_solutions', 1024, 'Maximum number of solutions to evaluate')
 flags.DEFINE_float('per_testcases', -1.0, 'Percentage of testcases to evaluate')
 
 def load_data_from_dataset(ds, solution_col="responses", max_solutions=16, per_testcases=-1):

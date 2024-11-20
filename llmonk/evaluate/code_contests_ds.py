@@ -13,14 +13,14 @@ import os
 
 FLAGS = flags.FLAGS
 # flags.DEFINE_string("dataset", "Asap7772/code_contests", "Directory to load data from")
-flags.DEFINE_string("dataset", "Asap7772/code_contests_llamasft1e-7_mc_passk_train-part1-of-1", "Directory to load data from")
+flags.DEFINE_string("dataset", "Asap7772/code_contests_llamabase_passk_test", "Directory to load data from")
 flags.DEFINE_integer("num_workers", 512, "Number of workers to use for grading")
 flags.DEFINE_string("save_dir", "results", "Directory to save results in")
 # flags.DEFINE_string("split", "valid", "Split to evaluate on")
 flags.DEFINE_string("split", "train", "Split to evaluate on")
 # flags.DEFINE_string('solution_col', 'solutions', 'Column name for solutions')
 flags.DEFINE_string('solution_col', 'responses', 'Column name for solutions')
-flags.DEFINE_integer('max_solutions', 256, 'Maximum number of solutions to evaluate')
+flags.DEFINE_integer('max_solutions', 1024, 'Maximum number of solutions to evaluate')
 flags.DEFINE_float('per_testcases', -1.0, 'Percentage of testcases to evaluate')
 
 from llmonk.evaluate.code_contests_utils import execution_server_client
